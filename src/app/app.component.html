@@ -1,0 +1,84 @@
+<!--
+<div class="container">
+  interpolation binding syntax
+  <h1>{{myTitle}}</h1>
+  <h2>{{myAge}}</h2>
+
+  ngFor derective
+  <ul>
+    <li *ngFor="let c of customers">
+      {{c}}
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        &lt;!&ndash;property binding syntax&ndash;&gt;
+        <input [value]="inputValue" class="form-control" type="text">
+        &lt;!&ndash;<input type="text" value="{{inputValue}}">&ndash;&gt;
+      </div>
+
+      <div class="form-group">
+        <input #txtInput (keyup)="getText(txtInput)" class="form-control" type="text">
+      </div>
+      <button (click)="getText(txtInput)" class="btn btn-danger mb-3">Send Details</button>
+
+
+      <div class="form-group">
+        <input [(ngModel)]="myTitle" class="form-control" type="text">
+      </div>
+
+
+
+
+      <h1 [style.color]="textColor">Style Binding Syntax</h1>
+      <h1 [class.myClass]="true">Class Binding Syntax</h1>
+
+
+      <h3 [ngClass]="{
+      'c1':option1,
+      'c2':option2,
+      'c3':option3
+      }">NG CLASS</h3>
+
+
+      <h3 [ngStyle]="{
+      'color':'deeppink',
+      'backgroundColor':'orange'
+      }">NG CLASS</h3>
+
+
+      <div *ngIf="true; else a">
+      <h1>IJSE</h1>
+      <h1>Panadura</h1>
+      </div>
+
+      <ng-template #a>
+        <h1>Else Worked</h1>
+      </ng-template>
+
+
+  <div *ngIf="false; then a else b"></div>
+      <ng-template #a>
+        <h1>Condition True</h1>
+      </ng-template>
+
+      <ng-template #b>
+        <h1>Else Worked</h1>
+      </ng-template>
+
+      <ul [ngSwitch]="'IJSEE'">
+        <li *ngSwitchCase="'IJSE'">IJSE</li>
+        <li *ngSwitchCase="'CMJD'">CMJD</li>
+        <li *ngSwitchCase="'GDSE'">GDSE</li>
+        <li *ngSwitchDefault>DEFAULT</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+-->
+<app-customer></app-customer>
