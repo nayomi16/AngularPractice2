@@ -6,17 +6,17 @@
     <div class="col-6">
       <div class="form-group">
         <label for="cusID">Customer ID</label>
-        <input type="text" id="cusID" class="form-control">
+        <input  type="text" id="cusID" class="form-control" [(ngModel)]="id" placeholder="{{cusId}}">
       </div>
       <div class="form-group">
         <label for="cusName">Customer Name</label>
-        <input type="text" id="cusName" class="form-control">
+        <input  type="text" id="cusName" class="form-control" [(ngModel)]="name" placeholder="{{cusName}}">
       </div>
       <div class="form-group">
         <label for="cusAddress">Customer Address</label>
-        <input type="text" id="cusAddress" class="form-control">
+        <input  type="text" id="cusAddress" class="form-control" [(ngModel)]="address" placeholder="{{cusAddress}}">
       </div>
-      <button class="btn btn-primary">Save Customer</button>
+      <button class="btn btn-primary" (click)="addDetails()">Save Customer</button>
     </div>
 
     <div class="col-12 mt-3">
@@ -29,7 +29,11 @@
         </tr>
         </thead>
         <tbody>
-
+        <tr *ngFor="let cus of customers" (click)="getValues(cus)">
+        <td>{{cus.id}}</td>
+        <td>{{cus.name}}</td>
+        <td>{{cus.address}}</td>
+        </tr>
         </tbody>
       </table>
     </div>
