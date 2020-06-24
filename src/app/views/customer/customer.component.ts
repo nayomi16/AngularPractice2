@@ -10,9 +10,7 @@ export class CustomerComponent implements OnInit {
   name;
   address;
   customers: any[] = [];
-  cusId;
-  cusName;
-  cusAddress;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,17 +25,28 @@ export class CustomerComponent implements OnInit {
 
     this.customers.push(row);
   }
-  tableData(param: {id: string, name: string, address: string}) {
+
+  getValues(param: any) {
     this.id = param.id;
     this.name = param.name;
     this.address = param.address;
-  }
-  getValues(param: any) {
-    param.id = this.cusId;
-    param.name = this.cusName;
-    param.address = this.cusAddress;
-    console.log(    param.id);
 
+
+  }
+
+  delete(c) {
+    const index = this.customers.indexOf(c);
+    this.customers.splice(index, 1);
+
+  }
+  update() {
+    this.customers.map((c) => {
+      if (c.id === this.id) {
+        c.name = this.name;
+        c.address = c.address;
+      }
+
+    });
   }
 
 }
