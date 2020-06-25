@@ -17,13 +17,13 @@ export class CustomerComponent implements OnInit {
   }
 
   addDetails() {
-    const row = {
-      id: this.id,
-      name: this.name,
-      address: this.address
-    };
+    // const row = {
+    //   id: this.id,
+    //   name: this.name,
+    //   address: this.address
+    // };
 
-    this.customers.push(row);
+    this.customers.push(this.customers);
   }
 
   getValues(param: any) {
@@ -45,7 +45,7 @@ export class CustomerComponent implements OnInit {
         c.name = this.name;
         c.address = c.address;
       }
-
+      return c;
     });
   }
 
