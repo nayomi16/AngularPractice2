@@ -1,0 +1,61 @@
+<header class="container-fluid jumbotron p-3">
+  <h1>Reactive Forms</h1>
+</header>
+<section class="container">
+  <div class="row">
+    <div class="col-6">
+      <form (ngSubmit)="submitForm()" [formGroup]="form">
+        <div class="form-group">
+          <label for="cusI">Customer ID</label>
+          <input type="text" class="form-control" formControlName="id" id="cusI"  name="id">
+          <div class="alert bg-danger" *ngIf="!cusId.valid && cusId.touched">
+          <div *ngIf="cusId.errors.required">CusId is a requiered</div>
+          <div *ngIf="cusId.errors.minlength">minimum length is 4</div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cusName">Customer Name</label>
+          <input  type="text" class="form-control" id="cusName" formControlName="name"  name="name">
+          <div class="alert bg-danger" *ngIf="!cstname.valid && cstname.touched">
+            <div *ngIf="cstname.errors.required">cstname is a requiered</div>
+            <div *ngIf="cstname.errors.minlength">minimum length is 4</div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cusAddress">Customer Address</label>
+          <input  type="text" class="form-control" id="cusAddress" formControlName="address" name="address" >
+          <div class="alert bg-danger" *ngIf="!cusAdd.valid && cusAdd.touched">
+            <div *ngIf="cusAdd.errors.required">cusAdd is a requiered</div>
+            <div *ngIf="cusAdd.errors.minlength">minimum length is 4</div>
+
+          </div>
+        </div>
+        <button class="btn btn-primary" >Save Customer</button>
+        <button class="btn btn-danger" (click)="reset()">Clear</button>
+      </form>
+    </div>
+
+
+
+    <div class="col-12 mt-3">
+      <table class="table table-bordered table-hover bg-danger text-white">
+        <thead>
+        <tr>
+          <td>Customer ID</td>
+          <td>Customer Name</td>
+          <td>Customer Address</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cus of customers" (click)="setValues(cus)" >
+          <td>{{cus.id}}</td>
+          <td>{{cus.name}}</td>
+          <td>{{cus.address}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
