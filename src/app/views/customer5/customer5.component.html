@@ -1,5 +1,5 @@
 <header class="container-fluid jumbotron p-3">
-  <h1>Reactive Forms</h1>
+  <h1>Http Request Haddling</h1>
 </header>
 <section class="container">
   <div class="row">
@@ -9,8 +9,8 @@
           <label for="cusI">Customer ID</label>
           <input type="text" class="form-control" formControlName="id" id="cusI"  name="id">
           <div class="alert bg-danger" *ngIf="!cusId.valid && cusId.touched">
-          <div *ngIf="cusId.errors.required">CusId is a requiered</div>
-          <div *ngIf="cusId.errors.minlength">minimum length is 4</div>
+            <div *ngIf="cusId.errors.required">CusId is a requiered</div>
+            <div *ngIf="cusId.errors.minlength">minimum length is 4</div>
 
           </div>
         </div>
@@ -32,8 +32,8 @@
 
           </div>
         </div>
-        <button class="btn btn-primary" [disabled]="!f.valid" >Save Customer</button>
-        <button class="btn btn-danger" (click)="reset()">Clear</button>
+        <button class="btn btn-primary" (click)="getAllPos()" [disabled]="!f.valid" >LoadAll</button>
+        <!--<button class="btn btn-danger" (click)="reset()">Clear</button>-->
       </form>
     </div>
 
@@ -43,16 +43,18 @@
       <table class="table table-bordered table-hover bg-danger text-white">
         <thead>
         <tr>
-          <td>Customer ID</td>
-          <td>Customer Name</td>
-          <td>Customer Address</td>
+          <td>ID</td>
+          <td>USERID</td>
+          <td>TITLE</td>
+          <td>BODY</td>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let cus of customers" (click)="setValues(cus)" >
-          <td>{{cus.id}}</td>
-          <td>{{cus.name}}</td>
-          <td>{{cus.address}}</td>
+        <tr *ngFor="let p of pos" (click)="setValues(p)" >
+          <td>{{p.id}}</td>
+          <td>{{p.userId}}</td>
+          <td>{{p.title}}</td>
+          <td>{{p.body}}</td>
         </tr>
         </tbody>
       </table>

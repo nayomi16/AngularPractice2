@@ -1,22 +1,27 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Customer} from "../../dto/customer";
+import {HttpClient} from "@angular/common/http";
+import {POS} from "../../dto/pos";
+import {PosService} from "../../services/pos.service";
+
 
 @Component({
-  selector: 'app-customer4',
-  templateUrl: './customer4.component.html',
-  styleUrls: ['./customer4.component.css']
+  selector: 'app-customer5',
+  templateUrl: './customer5.component.html',
+  styleUrls: ['./customer5.component.css']
 })
-export class Customer4Component implements OnInit {
+export class Customer5Component implements OnInit {
+
   form=new FormGroup({
     id: new FormControl('',[Validators.required, Validators.minLength(4), Validators.pattern('(C00)[0-9]{1,2}')]),
     name: new FormControl('',[Validators.required, Validators.minLength(4)]),
     address: new FormControl('',[Validators.required, Validators.minLength(4)])
   });
 
-  customers: Customer[] = [];
+  pos: POS[] = [];
 
-  constructor() { }
+  constructor(private posService:PosService) { }
 
   ngOnInit(): void {
   }
@@ -25,11 +30,17 @@ export class Customer4Component implements OnInit {
     // console.log(cusId);
   }
 
+  getAllPos(){
+    this.posService.getAllPos().subscribe((res)=>{
+      this.pos=res;
+    });
+  }
   submitForm() {
     console.log(this.form);
-    this.customers.push(this.form.value);
+    // this.pos.push(this.form.value);
     // this.form.reset();
     // this.IDFocus.nativeElement.focus();
+
 
   }
 
@@ -51,4 +62,5 @@ export class Customer4Component implements OnInit {
   get f(){
     return this.form;
   }
+
 }
