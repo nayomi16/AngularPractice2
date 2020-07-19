@@ -12,6 +12,7 @@ import { Customer5Component } from './views/customer5/customer5.component';
 import {HttpClientModule} from "@angular/common/http";
 import { Customer6Component } from './views/customer6/customer6.component';
 import { CustompPipe } from './pipes/customp.pipe';
+import { Customer7Component } from './views/customer7/customer7.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CustompPipe } from './pipes/customp.pipe';
     Customer5Component,
     Customer6Component,
     CustompPipe,
+    Customer7Component,
 
   ],
   imports: [
