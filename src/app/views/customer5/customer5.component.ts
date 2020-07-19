@@ -14,9 +14,10 @@ import {PosService} from "../../services/pos.service";
 export class Customer5Component implements OnInit {
 
   form=new FormGroup({
-    id: new FormControl('',[Validators.required, Validators.minLength(4), Validators.pattern('(C00)[0-9]{1,2}')]),
-    name: new FormControl('',[Validators.required, Validators.minLength(4)]),
-    address: new FormControl('',[Validators.required, Validators.minLength(4)])
+    id: new FormControl('',[Validators.required]),
+    userId: new FormControl('',[Validators.required]),
+    title: new FormControl('',[Validators.required, Validators.minLength(4)]),
+    body: new FormControl('',[Validators.required, Validators.minLength(4)])
   });
 
   pos: POS[] = [];
@@ -26,11 +27,12 @@ export class Customer5Component implements OnInit {
   ngOnInit(): void {
   }
 
-  save(cusId) {
-    // console.log(cusId);
-  }
+  // save(cusId) {
+  //   // console.log(cusId);
+  // }
 
   getAllPos(){
+    console.log(this.f);
     this.posService.getAllPos().subscribe((res)=>{
       this.pos=res;
     });
@@ -50,17 +52,29 @@ export class Customer5Component implements OnInit {
   reset() {
 
   }
-  get cusId(){
+  get id(){
     return this.form.get("id");
   }
-  get cstname(){
-    return this.form.get("name");
+  get userId(){
+    return this.form.get("userId");
   }
-  get cusAdd(){
-    return this.form.get("address");
+  get title(){
+    return this.form.get("title");
+  }
+
+  get body(){
+    return this.form.get("body");
   }
   get f(){
+
     return this.form;
+
   }
+
+  save(f:POS){
+    this.posService.savePost(f).subscribe((res)=>{
+      console.log(res,"res")
+    });
+}
 
 }

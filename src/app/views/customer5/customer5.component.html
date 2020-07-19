@@ -6,33 +6,48 @@
     <div class="col-6">
       <form (ngSubmit)="submitForm()" [formGroup]="form">
         <div class="form-group">
-          <label for="cusI">Customer ID</label>
-          <input type="text" class="form-control" formControlName="id" id="cusI"  name="id">
-          <div class="alert bg-danger" *ngIf="!cusId.valid && cusId.touched">
-            <div *ngIf="cusId.errors.required">CusId is a requiered</div>
-            <div *ngIf="cusId.errors.minlength">minimum length is 4</div>
+          <label for="idT">ID</label>
+          <input type="text" class="form-control" formControlName="id" id="idT"  name="id">
+          <div class="alert bg-danger" *ngIf="!id.valid && id.touched">
+            <div *ngIf="id.errors.required">id is a requiered</div>
+            <div *ngIf="id.errors.minlength">minimum length is 4</div>
 
           </div>
         </div>
         <div class="form-group">
-          <label for="cusName">Customer Name</label>
-          <input  type="text" class="form-control" id="cusName" formControlName="name"  name="name">
-          <div class="alert bg-danger" *ngIf="!cstname.valid && cstname.touched">
-            <div *ngIf="cstname.errors.required">cstname is a requiered</div>
-            <div *ngIf="cstname.errors.minlength">minimum length is 4</div>
+          <label for="userIdT">User ID</label>
+          <input  type="text" class="form-control" id="userIdT" formControlName="userId"  name="userId">
+          <div class="alert bg-danger" *ngIf="!userId.valid && userId.touched">
+            <div *ngIf="userId.errors.required">userId is a requiered</div>
+            <div *ngIf="userId.errors.minlength">minimum length is 4</div>
 
           </div>
         </div>
         <div class="form-group">
-          <label for="cusAddress">Customer Address</label>
-          <input  type="text" class="form-control" id="cusAddress" formControlName="address" name="address" >
-          <div class="alert bg-danger" *ngIf="!cusAdd.valid && cusAdd.touched">
-            <div *ngIf="cusAdd.errors.required">cusAdd is a requiered</div>
-            <div *ngIf="cusAdd.errors.minlength">minimum length is 4</div>
+          <label for="titleT">Title</label>
+          <input  type="text" class="form-control" id="titleT" formControlName="title" name="title" >
+          <div class="alert bg-danger" *ngIf="!title.valid && title.touched">
+            <div *ngIf="title.errors.required">title is a requiered</div>
+            <div *ngIf="title.errors.minlength">minimum length is 4</div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bodyT">Body</label>
+          <input  type="text" class="form-control" id="bodyT" formControlName="body" name="body" >
+          <div class="alert bg-danger" *ngIf="!body.valid && body.touched">
+            <div *ngIf="body.errors.required">body is a requiered</div>
+            <div *ngIf="body.errors.minlength">minimum length is 4</div>
 
           </div>
         </div>
         <button class="btn btn-primary" (click)="getAllPos()" [disabled]="!f.valid" >LoadAll</button>
+        <button class="btn btn-danger" (click)="save(f.value)" [disabled]="!f.valid" >save</button>
+        <button class="btn btn-primary"  [disabled]="!f.valid" >delete</button>
+        <button class="btn btn-danger"  [disabled]="!f.valid" >update</button>
+        <button class="btn btn-primary"  [disabled]="!f.valid" >search</button>
+
         <!--<button class="btn btn-danger" (click)="reset()">Clear</button>-->
       </form>
     </div>
