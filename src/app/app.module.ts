@@ -10,6 +10,7 @@ import { Customer3Component } from './views/customer3/customer3.component';
 import { Customer4Component } from './views/customer4/customer4.component';
 import { Customer5Component } from './views/customer5/customer5.component';
 import {HttpClientModule} from "@angular/common/http";
+import { Customer6Component } from './views/customer6/customer6.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
     Customer3Component,
     Customer4Component,
     Customer5Component,
+    Customer6Component,
 
   ],
   imports: [

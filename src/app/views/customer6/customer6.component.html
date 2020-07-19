@@ -1,0 +1,34 @@
+<div class="jumbotron bg-danger text-white p-3">
+  <h1>pipe</h1>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>Details</th>
+          <th>Details formated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{myName}}</td>
+          <td>{{myName | lowercase}}</td>
+        </tr>
+        <tr>
+          <td>{{add}}</td>
+          <td>{{add | uppercase}}</td>
+        </tr>
+        <tr>
+          <td>{{today}}</td>
+          <td>{{today | date}}</td>
+
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
