@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-customer7',
@@ -10,11 +10,14 @@ export class Customer7Component implements OnInit {
   @Input() CusID;
   @Input() CusName;
   @Input() CusAddress;
-
+  @Output() detailsChanged=new EventEmitter();
    // @Input() abc;
   constructor() { }
 
   ngOnInit(): void {
   }
+  selectDetails(CusID){
+    this.detailsChanged.emit(CusID);
 
+  }
 }

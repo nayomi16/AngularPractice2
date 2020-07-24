@@ -25,4 +25,7 @@ export class AppComponent {
     this.myTitle = param.value;
     console.log(param.value);
   }
+  methodCall(event){
+      console.log("ok",event)
+  }
 }
