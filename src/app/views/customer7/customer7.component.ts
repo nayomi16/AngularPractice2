@@ -7,7 +7,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class Customer7Component implements OnInit {
 
-  @Input() abc;
+  @Input() CusID;
+  @Input() CusName;
+  @Input() CusAddress;
+
+   // @Input() abc;
   constructor() { }
 
   ngOnInit(): void {

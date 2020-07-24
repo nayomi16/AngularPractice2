@@ -6,7 +6,10 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myName="Rashmika";
+  // myName="Rashmika";
+  CusID="C001";
+  CusName="kkk";
+  CusAddress="monaragala";
   showDetails = true;
   option1 = true;
   option2 = true;
